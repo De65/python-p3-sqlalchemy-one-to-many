@@ -19,10 +19,10 @@ if __name__ == '__main__':
     fake = Faker()
 
     genres = ['action', 'adventure', 'strategy',
-        'puzzle', 'first-person shooter', 'racing']
+              'puzzle', 'first-person shooter', 'racing']
     platforms = ['nintendo 64', 'gamecube', 'wii', 'wii u', 'switch',
-        'playstation', 'playstation 2', 'playstation 3', 'playstation 4',
-        'playstation 5', 'xbox', 'xbox 360', 'xbox one', 'pc']
+                 'playstation', 'playstation 2', 'playstation 3', 'playstation 4',
+                 'playstation 5', 'xbox', 'xbox 360', 'xbox one', 'pc']
 
     games = []
     for i in range(50):
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
     reviews = []
     for game in games:
-        for i in range(random.randint(1,5)):
+        for i in range(random.randint(1, 5)):
             review = Review(
                 score=random.randint(0, 10),
                 comment=fake.sentence(),
@@ -49,7 +49,7 @@ if __name__ == '__main__':
             )
 
             reviews.append(review)
-    
+
     session.bulk_save_objects(reviews)
     session.commit()
     session.close()
